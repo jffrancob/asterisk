@@ -25,6 +25,9 @@ on:
     #         * *  *         * *
     - cron:  '0 19 1-7,15-21 * 3' # first and third wednesdays of the month
 
+env:
+  IMAGE_NAME: jffrancob/asterisk
+
 jobs:
   generate-alpine-images:
     timeout-minutes: 60
@@ -109,7 +112,6 @@ jobs:
           )
 
           BUILDER_INSTANCE="${{ steps.buildx_env.outputs.value }}"
-          IMAGE_NAME="${{ env.IMAGE_NAME }}"
 
           cd alpine
 
